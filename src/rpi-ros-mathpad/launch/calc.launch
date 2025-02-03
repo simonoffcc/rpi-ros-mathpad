@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="rpi-ros-mathpad" type="keypad_input.py" name="keypad_input" output="screen"/>
+    <node pkg="rpi-ros-mathpad" type="calculator.py" name="calculator" output="screen"/>
+    <node pkg="rpi-ros-mathpad" type="lcd_display.py" name="lcd_display" output="screen"/>
+</launch>
