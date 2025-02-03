@@ -1,2 +1,21 @@
 # rpi-ros-mathpad
-Calculator on Raspberry Pi with ROS, matrix keyboard and LCD display. Allows you to enter expressions, calculate them via ROS nodes and display the result on the screen.
+Калькулятор на Raspberry Pi с ROS, матричной клавиатурой и ЖК-дисплеем. Позволяет вводить выражения, вычислять их в отдельном узле ROS и выводить результат на экран.
+
+
+## Архитектура проекта:
+
+### Узел keypad_input (ввод данных):
+
+- Считывает ввод с матричной клавиатуры.
+- Публикует данные (числа и операцию) в топик /calculator/input.
+
+### Узел calculator (обработка вычислений):
+
+- Подписывается на топик /calculator/input.
+- Выполняет арифметические операции на основе данных.
+- Публикует результат в топик /calculator/result.
+
+### Узел lcd_display (управление LCD):
+
+- Подписывается на топики /calculator/input и /calculator/result.
+- Отображает текущий ввод и результат вычислений на LCD-дисплее.
